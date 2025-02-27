@@ -14,9 +14,14 @@ tasks:
       package:  Microsoft.Azd
 
   - name: ~/winget
-    description: Install Visual Studio Code
+    description: Install NotePad++
     parameters:
-      package:  Microsoft.VisualStudioCode
+      package:  NotepadPlusPlus.NotepadPlusPlus
+
+  # - name: ~/winget
+  #   description: Install Visual Studio Code
+  #   parameters:
+  #     package:  Microsoft.VisualStudioCode
 
   - name: ~/powershell
     parameters:
