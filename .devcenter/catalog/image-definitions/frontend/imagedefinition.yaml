@@ -13,8 +13,8 @@ tasks:
     parameters:
       package:  Microsoft.Azd
 
-  - task: "powershell"
-    inputs:
+  - name: ~/powershell
+    parameters:
       command: |
         Invoke-WebRequest -Uri "https://notepad-plus-plus.org/repository/8.x/8.1.9.3/npp.8.1.9.3.Installer.x64.exe" -OutFile "C:\Temp\npp.8.1.9.3.Installer.x64.exe"
         Start-Process -FilePath "C:\Temp\npp.8.1.9.3.Installer.x64.exe" -ArgumentList "/S" -Wait
