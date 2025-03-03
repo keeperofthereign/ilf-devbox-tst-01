@@ -13,6 +13,7 @@ tasks:
     parameters:
       package:  Microsoft.Azd
 
+  # Nodepad++
   - name: ~/powershell
     parameters:
       command: |
@@ -20,17 +21,13 @@ tasks:
         Start-Process -FilePath "C:\Temp\npp.8.7.7.Installer.x64.exe" -ArgumentList "/S" -Wait
         Remove-Item -Path "C:\Temp\npp.8.7.7.Installer.x64.exe"
   
+  # Azure Storage Explorer
   - name: ~/powershell
     parameters:
       command: |
         Invoke-WebRequest -Uri "https://github.com/microsoft/AzureStorageExplorer/releases/download/v1.37.0/StorageExplorer-windows-x64.exe" -OutFile "C:\Temp\StorageExplorer-windows-x64.exe"
         Start-Process -FilePath "C:\Temp\StorageExplorer-windows-x64.exe" -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES" -Wait
         Remove-Item -Path "C:\Temp\StorageExplorer-windows-x64.exe"
-
-  # - name: ~/winget
-  #   description: Install Visual Studio Code
-  #   parameters:
-  #     package:  Microsoft.VisualStudioCode
 
   - name: ~/powershell
     parameters:

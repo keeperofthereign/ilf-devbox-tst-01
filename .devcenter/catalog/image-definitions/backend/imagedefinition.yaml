@@ -1,17 +1,68 @@
 $schema: "1.0"
-name: "backend-eng"
+name: "frontend-eng"
 image: microsoftvisualstudio_visualstudioplustools_vs-2022-ent-general-win11-m365-gen2
-description: "This definition is for the eShop backend engineering environment"
+description: "This definition is for the eShop frontend engineering environment"
 
 tasks:
   - name: ~/winget
     parameters:
       downloadUrl: 'https://raw.githubusercontent.com/contoso-co/common-eng-sys/msft-git/dsc-configurations/common-config.dsc.yaml'
-  ### Run the DSC configuration for the backend engineering environment
+
   - name: ~/winget
+    description: Install AZD
     parameters:
-      downloadUrl: 'https://raw.githubusercontent.com/contoso-co/eShop/refs/heads/main/.configurations/backend-eng.dsc.yaml'
-userTasks:
-  - name: ~/winget
+      package:  Microsoft.Azd
+
+  # Nodepad++
+  - name: ~/powershell
     parameters:
-      configurationFile: 'z:\workspaces\eshop\.configurations\backend-eng.postcreate.dsc.yaml'
+      command: |
+        Invoke-WebRequest -Uri "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.7/npp.8.7.7.Installer.x64.exe" -OutFile "C:\Temp\npp.8.7.7.Installer.x64.exe"
+        Start-Process -FilePath "C:\Temp\npp.8.7.7.Installer.x64.exe" -ArgumentList "/S" -Wait
+        Remove-Item -Path "C:\Temp\npp.8.7.7.Installer.x64.exe"
+  
+  # Azure Storage Explorer
+  - name: ~/powershell
+    parameters:
+      command: |
+        Invoke-WebRequest -Uri "https://github.com/microsoft/AzureStorageExplorer/releases/download/v1.37.0/StorageExplorer-windows-x64.exe" -OutFile "C:\Temp\StorageExplorer-windows-x64.exe"
+        Start-Process -FilePath "C:\Temp\StorageExplorer-windows-x64.exe" -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES" -Wait
+        Remove-Item -Path "C:\Temp\StorageExplorer-windows-x64.exe"
+
+#  Git set Machine and User Path
+  - name: ~/powershell
+    parameters:
+      command: |
+        $env:Path = [System.Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [System.Environment]::GetEnvironmentVariable('Path','User') 
+
+ # Postman
+  - name: ~/powershell
+    parameters:
+      command: |
+        Invoke-WebRequest -Uri "https://dl.pstmn.io/download/latest/win64" -OutFile "C:\Temp\Postman.exe"
+        Start-Process -FilePath "C:\Temp\Postman.exe" -ArgumentList "/S" -Wait
+        Remove-Item -Path "C:\Temp\Postman.exe"
+
+#  Node.js
+  - name: ~/powershell
+    parameters:
+      command: |
+        Invoke-WebRequest -Uri "https://nodejs.org/dist/latest/node-v23.9.0-x64.msi" -OutFile "C:\Temp\node-v23.9.0-x64.msi"
+        Start-Process -FilePath "C:\Temp\node-v23.9.0-x64.msi" -ArgumentList "/quiet" -Wait
+        Remove-Item -Path "C:\Temp\node-v23.9.0-x64.msi"
+
+#  7-Zip
+  - name: ~/powershell
+    parameters:
+      command: |
+        Invoke-WebRequest -Uri "https://www.7-zip.org/a/7z2409-x64.exe" -OutFile "C:\Temp\7z2409-x64.exe"
+        Start-Process -FilePath "C:\Temp\7z2409-x64.exe" -ArgumentList "/quiet" -Wait -Verb RunAs
+        Remove-Item -Path "C:\Temp\7z2409-x64.exe"
+
+#  Draw.io
+  - name: ~/powershell
+    parameters:
+      command: |
+        Invoke-WebRequest -Uri "https://github.com/jgraph/drawio-desktop/releases/download/v26.0.16/draw.io-26.0.16-windows-installer.exe" -OutFile "C:\Temp\draw.io-x64-setup.exe"
+        Start-Process -FilePath "C:\Temp\draw.io-x64-setup.exe" -ArgumentList "/S" -Wait -Verb RunAs
+        Remove-Item -Path "C:\Temp\draw.io-x64-setup.exe"
