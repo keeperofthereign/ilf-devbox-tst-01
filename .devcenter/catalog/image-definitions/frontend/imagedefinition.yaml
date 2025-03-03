@@ -19,6 +19,13 @@ tasks:
         Invoke-WebRequest -Uri "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.7/npp.8.7.7.Installer.x64.exe" -OutFile "C:\Temp\npp.8.7.7.Installer.x64.exe"
         Start-Process -FilePath "C:\Temp\npp.8.7.7.Installer.x64.exe" -ArgumentList "/S" -Wait
         Remove-Item -Path "C:\Temp\npp.8.7.7.Installer.x64.exe"
+  
+  - name: ~/powershell
+    parameters:
+      command: |
+        Invoke-WebRequest -Uri "https://github.com/Microsoft/AzureStorageExplorer/releases/download/v1.28.1/AzureStorageExplorer.exe" -OutFile "C:\Temp\AzureStorageExplorer.exe"
+        Start-Process -FilePath "C:\Temp\AzureStorageExplorer.exe" -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES" -Wait
+        Remove-Item -Path "C:\Temp\AzureStorageExplorer.exe"
 
   # - name: ~/winget
   #   description: Install Visual Studio Code
