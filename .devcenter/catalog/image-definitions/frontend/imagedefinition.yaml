@@ -23,9 +23,9 @@ tasks:
   - name: ~/powershell
     parameters:
       command: |
-        Invoke-WebRequest -Uri "https://github.com/Microsoft/AzureStorageExplorer/releases/download/v1.28.1/AzureStorageExplorer.exe" -OutFile "C:\Temp\AzureStorageExplorer.exe"
-        Start-Process -FilePath "C:\Temp\AzureStorageExplorer.exe" -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES" -Wait
-        Remove-Item -Path "C:\Temp\AzureStorageExplorer.exe"
+        Invoke-WebRequest -Uri "https://github.com/microsoft/AzureStorageExplorer/releases/download/v1.37.0/StorageExplorer-windows-x64.exe" -OutFile "C:\Temp\StorageExplorer-windows-x64.exe"
+        Start-Process -FilePath "C:\Temp\StorageExplorer-windows-x64.exe" -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES" -Wait
+        Remove-Item -Path "C:\Temp\StorageExplorer-windows-x64.exe"
 
   # - name: ~/winget
   #   description: Install Visual Studio Code
