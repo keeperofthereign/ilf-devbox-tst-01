@@ -52,17 +52,17 @@ tasks:
         Remove-Item -Path "C:\Temp\node-v23.9.0-x64.msi"
 
 #  7-Zip
-  - name: ~/powershell
-    parameters:
-      command: |
-        Invoke-WebRequest -Uri "https://www.7-zip.org/a/7z2409-x64.exe" -OutFile "C:\Temp\7z2409-x64.exe"
-        Start-Process -FilePath "C:\Temp\7z2409-x64.exe" -ArgumentList "/quiet" -Wait -Verb RunAs
-        Remove-Item -Path "C:\Temp\7z2409-x64.exe"
+  # - name: ~/powershell
+  #   parameters:
+  #     command: |
+  #       Invoke-WebRequest -Uri "https://www.7-zip.org/a/7z2409-x64.exe" -OutFile "C:\Temp\7z2409-x64.exe"
+  #       Start-Process -FilePath "C:\Temp\7z2409-x64.exe" -ArgumentList "/quiet" -Wait -Verb RunAs
+  #       Remove-Item -Path "C:\Temp\7z2409-x64.exe"
 
 #  Draw.io
-  - name: ~/powershell
-    parameters:
-      command: |
-        Invoke-WebRequest -Uri "https://github.com/jgraph/drawio-desktop/releases/download/v26.0.16/draw.io-26.0.16-windows-installer.exe" -OutFile "C:\Temp\draw.io-x64-setup.exe"
-        Start-Process -FilePath "C:\Temp\draw.io-x64-setup.exe" -ArgumentList "/S" -Wait -Verb RunAs
-        Remove-Item -Path "C:\Temp\draw.io-x64-setup.exe"
+  # - name: ~/powershell
+  #   parameters:
+  #     command: |
+  #       Invoke-WebRequest -Uri "https://github.com/jgraph/drawio-desktop/releases/download/v26.0.16/draw.io-26.0.16-windows-installer.exe" -OutFile "C:\Temp\draw.io-x64-setup.exe"
+  #       Start-Process -FilePath "C:\Temp\draw.io-x64-setup.exe" -ArgumentList "/S" -Wait -Verb RunAs
+  #       Remove-Item -Path "C:\Temp\draw.io-x64-setup.exe"
