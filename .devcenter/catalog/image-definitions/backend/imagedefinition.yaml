@@ -1,7 +1,7 @@
 $schema: "1.0"
 name: "backend-eng"
 image: microsoftvisualstudio_visualstudioplustools_vs-2022-ent-general-win11-m365-gen2
-description: "This definition is for the eShop backend engineering environment"
+description: "This definition is for the backend engineering environment"
 
 tasks:
   - name: ~/winget
@@ -29,7 +29,6 @@ tasks:
         Start-Process -FilePath "C:\Temp\StorageExplorer-windows-x64.exe" -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES" -Wait
         Remove-Item -Path "C:\Temp\StorageExplorer-windows-x64.exe"
 
-#  Git set Machine and User Path
   - name: ~/powershell
     parameters:
       command: |
@@ -40,7 +39,7 @@ tasks:
     parameters:
       command: |
         Invoke-WebRequest -Uri "https://dl.pstmn.io/download/latest/win64" -OutFile "C:\Temp\Postman.exe"
-        Start-Process -FilePath "C:\Temp\Postman.exe" -ArgumentList "/S" -Wait
+        Start-Process -FilePath "C:\Temp\Postman.exe" -ArgumentList "/S" "/quiet" -Wait
         Remove-Item -Path "C:\Temp\Postman.exe"
 
 #  Node.js
