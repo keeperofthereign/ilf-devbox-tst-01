@@ -13,6 +13,11 @@ tasks:
     parameters:
       package:  Microsoft.Azd
 
+  - name: ~/winget
+    description: Install Azure Storage Explorer
+    parameters:
+      package:  Microsoft.Azure.StorageExplorer
+
   # Azure Storage Explorer
   - name: ~/powershell
     parameters:
