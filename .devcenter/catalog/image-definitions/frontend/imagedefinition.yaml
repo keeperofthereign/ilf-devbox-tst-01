@@ -13,14 +13,6 @@ tasks:
     parameters:
       package:  Microsoft.Azd
 
-  # Nodepad++
-  - name: ~/powershell
-    parameters:
-      command: |
-        Invoke-WebRequest -Uri "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.7/npp.8.7.7.Installer.x64.exe" -OutFile "C:\Temp\npp.8.7.7.Installer.x64.exe"
-        Start-Process -FilePath "C:\Temp\npp.8.7.7.Installer.x64.exe" -ArgumentList "/S" -Wait
-        Remove-Item -Path "C:\Temp\npp.8.7.7.Installer.x64.exe"
-  
   # Azure Storage Explorer
   - name: ~/powershell
     parameters:
@@ -29,6 +21,14 @@ tasks:
         Start-Process -FilePath "C:\Temp\StorageExplorer-windows-x64.exe" -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES" -Wait
         Remove-Item -Path "C:\Temp\StorageExplorer-windows-x64.exe"
 
+  # Nodepad++
+  - name: ~/powershell
+    parameters:
+      command: |
+        Invoke-WebRequest -Uri "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.7/npp.8.7.7.Installer.x64.exe" -OutFile "C:\Temp\npp.8.7.7.Installer.x64.exe"
+        Start-Process -FilePath "C:\Temp\npp.8.7.7.Installer.x64.exe" -ArgumentList "/S" -Wait
+        Remove-Item -Path "C:\Temp\npp.8.7.7.Installer.x64.exe"
+  
   - name: ~/powershell
     parameters:
       command: |
